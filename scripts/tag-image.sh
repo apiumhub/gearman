@@ -4,7 +4,7 @@ set -x
 IMAGE=$1
 docker pull $IMAGE:$TAG
 . version.properties
-docker tag $IMAGE:latest $IMAGE:$IMAGE_VERSION
+docker tag $IMAGE:$TAG $IMAGE:$IMAGE_VERSION
 docker push $IMAGE:$IMAGE_VERSION
 docker rmi $IMAGE:$IMAGE_VERSION
 docker rmi $IMAGE:$TAG
