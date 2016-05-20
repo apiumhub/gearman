@@ -13,8 +13,6 @@ build:
 delete:
 	docker rmi $(IMAGE):$(TAG)
 release:
-	docker pull $(IMAGE):$(TAG)
-	./scripts/tag-image.sh $(IMAGE)
+	./scripts/tag-image.sh $(IMAGE) $(TAG)
 	./scripts/increment_version.sh -p
 	./scripts/tag.sh
-	docker rmi $(IMAGE):$(TAG)
