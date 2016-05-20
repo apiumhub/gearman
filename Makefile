@@ -11,7 +11,7 @@ build:
 delete:
 	echo "---library-build---"
 release:
-	docker pull $(IMAGE):$(TAG)
+	docker pull $(IMAGE_LATEST)
 	./scripts/tag-image.sh $(IMAGE)
 	./scripts/increment_version.sh -p
 	./scripts/tag.sh
