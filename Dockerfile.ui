@@ -1,0 +1,9 @@
+FROM docker.apiumtech.io/bilua-base:0.0.11
+WORKDIR /var/www/html
+RUN apt-get update && apt-get install -y git && apt-get clean
+RUN git clone git://github.com/gaspaio/gearmanui.git gearman-ui
+RUN cd gearman-ui && git checkout 2.0.1
+RUN cd gearman-ui && composer install --no-dev
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash && apt-get install nodejs -y && apt-get clean
+RUN npm install -g bower
+RUN cd gearman-ui && bower install --allow-root
